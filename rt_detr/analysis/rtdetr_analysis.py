@@ -11,8 +11,6 @@ import json
 import sys
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
-import experiment_utils
-import temporal_postprocessing
 import numpy as np
 import pandas as pd
 
@@ -20,6 +18,9 @@ ANALYSIS_DIR = Path(__file__).resolve().parent
 TASK_DIR = ANALYSIS_DIR.parent
 ROOT = TASK_DIR.parent
 sys.path.insert(0, str(ROOT / 'shared'))
+
+import experiment_utils
+import temporal_postprocessing
 
 FOLDS = range(5)
 CHUNK = 400
