@@ -22,7 +22,7 @@ TUNING = retina_pipeline.TUNING
 OFFICIAL_RAW_JSON = HERE / 'official_validation_retina_v2_raw.json'
 A_KEY = 'A: v2 + temporal (tuned)'
 FUSION_KEY = 'RetinaNet + Faster R-CNN v2 fusion + temporal (tuned)'
-OUT_CSV = HERE / 'kaggle_submissions' / 'retinanet_v2_5fold_tta_wbf_fusion_temporal_submission.csv'
+OUT_CSV = HERE / 'retinanet_v2_5fold_tta_wbf_fusion_temporal_submission.csv'
 
 
 def run(stage, jobs, workers=6):

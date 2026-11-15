@@ -36,7 +36,7 @@ import experiment_utils
 OUT = HERE / 'analysis'
 CONFIDENT_SCORE = 0.3
 FRCNN_V1_CACHE = ROOT / 'faster_rcnn/official_validation/cache'
-FRCNN_V2_VIEWS = ROOT / 'final_pipeline/ensemble/cache/views/val'
+FRCNN_V2_VIEWS = ROOT / 'faster_rcnn/faster_rcnn_v2/inference/cache/views/val'
 RETINA_VIEWS = HERE / 'inference/cache/views/val'
 SIZE_RANGES = {'small': (0, 32 ** 2), 'medium': (32 ** 2, 96 ** 2), 'large': (96 ** 2, 1e12)}
 

@@ -23,7 +23,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(ROOT / 'shared'))
-sys.path.insert(0, str(ROOT / 'final_pipeline/temporal'))
+sys.path.insert(0, str(ROOT / 'data_temporality'))
 import final_evaluation
 import experiment_utils
 

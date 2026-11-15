@@ -1,6 +1,6 @@
 {
   "submission": "kaggle_submissions/faster_rcnn_submission3.csv",
-  "pipeline": "Faster R-CNN lr_scheduler, 5 fold checkpoints x 6 TTA views, WBF (the faster_rcnn_tta_wbf_submission.csv predictions), then temporal post-processing (final_pipeline/temporal/temporal_experiment.ipynb)",
+  "pipeline": "Faster R-CNN lr_scheduler, 5 fold checkpoints x 6 TTA views, WBF (the faster_rcnn_tta_wbf_submission.csv predictions), then temporal post-processing (data_temporality/temporal_experiment.ipynb)",
   "temporal_parameters": {
     "s_high": 0.3,
     "s_low": 0.01,

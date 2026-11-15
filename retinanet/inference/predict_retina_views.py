@@ -15,7 +15,7 @@ import torch
 HERE = Path(__file__).resolve().parent
 TASK = HERE.parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
-for path in (ROOT / 'shared', ROOT / 'final_pipeline/temporal', TASK):
+for path in (ROOT / 'shared', ROOT / 'data_temporality', TASK):
     sys.path.insert(0, str(path))
 
 import tta_wbf

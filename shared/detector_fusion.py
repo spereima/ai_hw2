@@ -66,7 +66,7 @@ def _fcos_sets(name, config, views):
 
 def frcnn_fused(name, source=True):
     """Faster R-CNN TTA + WBF exactly as submitted: tune = out-of-fold single checkpoint, val/test = 5-checkpoint ensemble.
-    source True = Faster R-CNN (v1) caches; a folder path = the same files built from other checkpoints (final_pipeline/ensemble)."""
+    source True = Faster R-CNN (v1) caches; a folder path = the same files built from other checkpoints (faster_rcnn/faster_rcnn_v2/inference)."""
     cache_name = {'tune': 'tune_base', 'val': 'val_ens', 'test': 'test_ens'}[name]
     folder = eu.CACHE if source is True else Path(source)
     meta, rows = eu.load_preds(folder / f'{cache_name}.npz')

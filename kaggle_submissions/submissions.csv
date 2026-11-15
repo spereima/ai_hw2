@@ -1,7 +1,8 @@
 kaggle_file,public_score,pipeline,official_val_mAP,report,code,selected_for_final_score
 faster_rcnn_submission.csv,0.2289568948,"Faster R-CNN lr_scheduler (fold 2 checkpoint), 6 TTA views, WBF",0.2184 (mean of the 5 single checkpoints with the same TTA),faster_rcnn_submission_report.json,shared/tta_wbf.py,
 faster_rcnn_tta_wbf_submission.csv,0.2587345732,"Faster R-CNN, 5 fold checkpoints x 6 TTA views, WBF",0.2364,faster_rcnn_tta_wbf_submission_report.json,shared/tta_wbf.py,
-faster_rcnn_submission3.csv,0.2809543501,"Faster R-CNN, 5 x 6 TTA views, WBF, temporal post-processing",0.2450,faster_rcnn_submission3_report.json,final_pipeline/temporal/,
-faster_rcnn_fcos_submission.csv,0.2789867157,"Faster R-CNN + FCOS fusion, temporal post-processing",0.2528,faster_rcnn_fcos_submission_report.json,fcos/inference/make_faster_rcnn_fcos_submission.py,faster_rcnn_updated_fcos_submission.csv,0.3095333285,"B: Faster R-CNN v2 + FCOS fusion, temporal post-processing",0.2928,faster_rcnn_updated_fcos_submission_report.json,final_pipeline/ensemble/ensemble_pipeline.py,
-faster_rcnn_updated_submission.csv,0.3187572876,"A: Faster R-CNN v2, 5 x 6 TTA views, WBF, temporal post-processing",0.2841,faster_rcnn_updated_submission_report.json,final_pipeline/ensemble/ensemble_pipeline.py,yes
+faster_rcnn_submission3.csv,0.2809543501,"Faster R-CNN, 5 x 6 TTA views, WBF, temporal post-processing",0.2450,faster_rcnn_submission3_report.json,data_temporality/temporal_experiment.ipynb,
+faster_rcnn_fcos_submission.csv,0.2789867157,"Faster R-CNN + FCOS fusion, temporal post-processing",0.2528,faster_rcnn_fcos_submission_report.json,fcos/inference/make_faster_rcnn_fcos_submission.py,
+faster_rcnn_updated_fcos_submission.csv,0.3095333285,"B: Faster R-CNN v2 + FCOS fusion, temporal post-processing",0.2928,faster_rcnn_updated_fcos_submission_report.json,faster_rcnn/faster_rcnn_v2/inference/ensemble_pipeline.py,
+faster_rcnn_updated_submission.csv,0.3187572876,"A: Faster R-CNN v2, 5 x 6 TTA views, WBF, temporal post-processing",0.2841,faster_rcnn_updated_submission_report.json,faster_rcnn/faster_rcnn_v2/inference/ensemble_pipeline.py,yes
 rtdetr_tta_wbf_temporal_submission.csv,0.3203108275,"RT-DETR, 5 x 8 TTA views, WBF, temporal post-processing",0.3012,rtdetr_tta_wbf_temporal_submission_report.json,rt_detr/inference/rtdetr_pipeline.py,yes

@@ -32,7 +32,7 @@ CONFIDENT = 0.3
 def model_folders():
     chosen = json.loads((TASK_DIR / 'inference' / 'chosen_config.json').read_text())['config']
     return {f'RT-DETR ({chosen})': TASK_DIR / 'inference' / 'cache' / 'views' / 'val',
-            'Faster R-CNN v2 + scale aug': ROOT / 'final_pipeline/ensemble/cache/views/val',
+            'Faster R-CNN v2 + scale aug': ROOT / 'faster_rcnn/faster_rcnn_v2/inference/cache/views/val',
             'RetinaNet (baseline)': ROOT / 'retinanet/inference/cache/views/val'}
 
 

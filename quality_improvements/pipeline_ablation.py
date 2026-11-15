@@ -23,7 +23,7 @@ import temporal_postprocessing
 import detector_fusion
 
 FASTER_RCNN_V1_CACHE = ROOT / 'faster_rcnn/official_validation/cache'
-V2_VIEWS = ROOT / 'quality_improvements/faster_rcnn_v2_ensemble/cache/views/val'
+V2_VIEWS = ROOT / 'faster_rcnn/faster_rcnn_v2/inference/cache/views/val'
 
 
 def native_sets(model, ids):
@@ -46,7 +46,7 @@ if __name__ == '__main__':
               **{f'video_{video}': meta.image_id[meta.video == video].tolist() for video in meta.video.unique()}}
     rows = []
     v1_raw = json.loads((ROOT / 'fcos/inference/official_validation_raw.json').read_text())['results']
-    v2_raw = json.loads((ROOT / 'quality_improvements/faster_rcnn_v2_ensemble/official_validation_raw.json').read_text())['results']
+    v2_raw = json.loads((ROOT / 'faster_rcnn/faster_rcnn_v2/inference/official_validation_raw.json').read_text())['results']
     cached = {('v1', '5 checkpoints x 6 TTA views, WBF'): v1_raw['Faster R-CNN 5 checkpoints TTA (0.2587 pipeline)'],
               ('v1', '+ temporal processing'): v1_raw['Faster R-CNN + temporal (0.2810 pipeline)'],
               ('v1', '+ FCOS fusion + temporal'): v1_raw['Faster R-CNN + FCOS fusion + temporal (tuned)'],
