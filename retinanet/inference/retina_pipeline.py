@@ -29,7 +29,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 FCOS_DIR = ROOT / 'fcos/inference'
-V2_DIR = ROOT / 'final_pipeline/ensemble'
+V2_DIR = ROOT / 'faster_rcnn/faster_rcnn_v2/inference'
 sys.path.insert(0, str(ROOT / 'shared'))
 sys.path.insert(0, str(V2_DIR))
 
@@ -274,7 +274,7 @@ def submit():
         print('no CSV for the ensemble fusion (rule not met):', fusion_decision)
     reports = {}
     for key, csv_name in csv_names.items():
-        path = ROOT / 'kaggle_submissions' / csv_name
+        path = HERE / 'kaggle_submissions' / csv_name
         meta, rows = detector_fusion.pipeline_rows('test', jobs[key], None, [], str(B_DIR) if 'ensemble fusion' in key else False)
         assert meta.image_id.astype(str).tolist() == images.image_id.astype(str).tolist()
         strings = [tta_wbf.prediction_string(boxes, scores, labels, h, w)
@@ -285,7 +285,7 @@ def submit():
         checks, stats = tta_wbf.validate_submission(path, images)
         reports[key] = dict(submission=str(path), pipeline=jobs[key], checks=checks, stats=stats)
         print(key, '->', csv_name, '| checks:', 'ALL PASS' if all(checks.values()) else checks, flush=True)
-    (ROOT / 'kaggle_submissions' / 'retinanet_submission_report.json').write_text(json.dumps(dict(
+    (HERE / 'kaggle_submissions' / 'retinanet_submission_report.json').write_text(json.dumps(dict(
         decision_ensemble_fusion=fusion_decision, submissions=reports,
         note='validated against test_images.csv and the Data-page format; nothing uploaded'), indent=2, default=str))
 

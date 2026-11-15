@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
-HERE = ROOT / 'final_pipeline' / 'temporal'
+HERE = ROOT / 'data_temporality'
 sys.path.insert(0, str(ROOT / 'shared'))
 sys.path.insert(0, str(HERE))
 import temporal_postprocessing

@@ -27,11 +27,11 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.ops.misc import FrozenBatchNorm2d
 from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
-from visdrone_data import VisDrone, collate
 
 
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(ROOT / 'shared'))
+from visdrone_data import VisDrone, collate
 DATA_DIR = ROOT / 'datasets/multiple-object-video-detection-hw-2-ucu-ai-2026'
 FOLDS_CSV = ROOT / 'shared/sequence_folds.csv'
 BASE_RUNS = ROOT / 'faster_rcnn/lr_scheduler'

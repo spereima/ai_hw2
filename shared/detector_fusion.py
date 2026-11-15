@@ -16,7 +16,7 @@ import pandas as pd
 
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
 HERE = ROOT / 'fcos' / 'inference'
-TEMPORAL = ROOT / 'final_pipeline/temporal'
+TEMPORAL = ROOT / 'data_temporality'
 for directory in (ROOT / 'shared', TEMPORAL, HERE):
     sys.path.insert(0, str(directory))
 

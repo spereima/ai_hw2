@@ -21,7 +21,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 FCOS_DIR = ROOT / 'fcos/inference'
-V2_DIR = ROOT / 'final_pipeline/ensemble'
+V2_DIR = ROOT / 'faster_rcnn/faster_rcnn_v2/inference'
 sys.path.insert(0, str(ROOT / 'shared'))
 sys.path.insert(0, str(V2_DIR))
 
@@ -236,7 +236,7 @@ def submit():
     if FUSION:
         build_b('test')
     jobs = candidates('test')
-    submission_files = {'RT-DETR 5-fold TTA + WBF + temporal (tuned)': 'rtdetr_5fold_tta_wbf_temporal_submission.csv'}
+    submission_files = {'RT-DETR 5-fold TTA + WBF + temporal (tuned)': 'rtdetr_tta_wbf_temporal_submission.csv'}
     if decision_result['adopt']:
         submission_files['RT-DETR + v2/FCOS ensemble fusion + temporal (tuned)'] = 'rtdetr_v2_fcos_5fold_tta_wbf_fusion_temporal_submission.csv'
     else:
@@ -254,7 +254,7 @@ def submit():
         checks, stats = tta_wbf.validate_submission(path, test_images)
         reports[key] = dict(submission=str(path), pipeline=jobs[key], checks=checks, stats=stats)
         print(key, '->', fname, '| checks:', 'ALL PASS' if all(checks.values()) else checks, flush=True)
-    (ROOT / 'kaggle_submissions' / 'rtdetr_submission_report.json').write_text(json.dumps(dict(decision_ensemble_fusion=decision_result, submissions=reports,
+    (ROOT / 'kaggle_submissions' / 'rtdetr_tta_wbf_temporal_submission_report.json').write_text(json.dumps(dict(decision_ensemble_fusion=decision_result, submissions=reports,
         note='validated against test_images.csv and the Data-page format; nothing uploaded'), indent=2, default=str))
 
 if __name__ == '__main__':

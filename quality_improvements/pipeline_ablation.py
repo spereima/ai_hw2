@@ -16,7 +16,7 @@ import pandas as pd
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
 HERE = Path(__file__).resolve().parent
 for import_dir in (ROOT / 'shared', ROOT / 'data_temporality', ROOT / 'fcos/inference',
-                   ROOT / 'quality_improvements/faster_rcnn_v2_ensemble'):
+                   ROOT / 'faster_rcnn/faster_rcnn_v2/inference'):
     sys.path.insert(0, str(import_dir))
 import experiment_utils
 import temporal_postprocessing
