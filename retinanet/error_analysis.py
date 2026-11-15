@@ -23,14 +23,15 @@ import numpy as np
 import pandas as pd
 import torch
 import retina
-import detector_fusion
-import experiment_utils
 from torchvision.ops import box_iou
 
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / 'fcos/inference'))
+
+import detector_fusion
+import experiment_utils
 
 OUT = HERE / 'analysis'
 CONFIDENT_SCORE = 0.3
