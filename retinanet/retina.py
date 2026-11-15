@@ -27,9 +27,6 @@ from PIL import Image
 from torch.utils.data import Dataset, DataLoader, Subset
 from tqdm import tqdm
 from torchvision.models.detection import retinanet_resnet50_fpn, RetinaNet_ResNet50_FPN_Weights
-import training_utils
-from training_utils import (DATA, coco_train, coco_val, FOLDS_CSV, FOLDS, FOLDS_SHA, seed_all, VisDroneDataset, fold_ids,
-                            inside_ignored)
 from torchvision.models.detection.anchor_utils import AnchorGenerator
 from torchvision.models.detection import _utils as det_utils
 from torchvision.ops import sigmoid_focal_loss, box_iou
@@ -38,6 +35,11 @@ ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
 HERE = Path(__file__).resolve().parent
 OUT = HERE / 'runs'
 sys.path.insert(0, str(ROOT / 'shared'))
+
+import training_utils
+from training_utils import (DATA, coco_train, coco_val, FOLDS_CSV, FOLDS, FOLDS_SHA, seed_all, VisDroneDataset, fold_ids,
+                            inside_ignored)
+
 DEV = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 NUM_CLASSES = 8
 NUM_WORKERS = 3
