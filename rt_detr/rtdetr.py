@@ -14,7 +14,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import torch
-import training_utils
 from transformers import RTDetrForObjectDetection, RTDetrImageProcessor, RTDetrConfig
 import transformers.loss.loss_rt_detr as rtdetr_loss
 from transformers.image_transforms import center_to_corners_format
@@ -25,6 +24,8 @@ ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[1]))
 HERE = Path(__file__).resolve().parent
 OUT = HERE / 'runs'
 sys.path.insert(0, str(ROOT / 'shared'))
+
+import training_utils
 
 DATA, coco_train, coco_val = training_utils.DATA, training_utils.coco_train, training_utils.coco_val
 FOLDS, FOLDS_SHA = training_utils.FOLDS, training_utils.FOLDS_SHA
