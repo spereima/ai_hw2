@@ -13,9 +13,6 @@ import argparse
 import json
 import os
 import sys
-import tta_wbf
-import experiment_utils
-import rtdetr
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -28,6 +25,10 @@ TASK = HERE.parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 for search_path in (ROOT / 'shared', ROOT / 'final_pipeline/temporal', TASK):
     sys.path.insert(0, str(search_path))
+
+import tta_wbf
+import experiment_utils
+import rtdetr
 
 VIEWS = ['none@1.0', 'h@1.0', 'none@1.25', 'h@1.25', 'none@1.5', 'h@1.5', 'none@0.75', 'h@0.75']
 CACHE = HERE / 'cache' / 'views'
