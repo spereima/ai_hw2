@@ -25,11 +25,6 @@ from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import numpy as np
 import pandas as pd
-import detector_fusion
-import pipeline_tuning
-import experiment_utils
-import tta_wbf
-import ensemble_pipeline
 
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
@@ -37,6 +32,12 @@ FCOS_DIR = ROOT / 'fcos/inference'
 V2_DIR = ROOT / 'final_pipeline/ensemble'
 sys.path.insert(0, str(ROOT / 'shared'))
 sys.path.insert(0, str(V2_DIR))
+
+import detector_fusion
+import pipeline_tuning
+import experiment_utils
+import tta_wbf
+import ensemble_pipeline
 
 VIEWS_DIR = HERE / 'cache' / 'views'
 FUSED_DIR = HERE / 'cache' / 'fused'
