@@ -1,0 +1,14 @@
+{
+  "params": {
+    "s_high": 0.3,
+    "s_low": 0.01,
+    "iou_link": 0.5,
+    "max_gap": 2,
+    "min_len": 3,
+    "alpha": 0.65,
+    "beta": 0.6,
+    "gamma": 0.75
+  },
+  "chosen_on": "out-of-fold consecutive frames of the 56 training videos",
+  "selection": "highest mAP@[.50:.95] over all tuning frames"
+}
