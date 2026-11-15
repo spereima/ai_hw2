@@ -13,11 +13,6 @@ import hashlib
 import json
 import os
 import sys
-import detector_fusion
-import pipeline_tuning
-import experiment_utils
-import tta_wbf
-import ensemble_pipeline
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import numpy as np
@@ -29,6 +24,12 @@ FCOS_DIR = ROOT / 'fcos/inference'
 V2_DIR = ROOT / 'final_pipeline/ensemble'
 sys.path.insert(0, str(ROOT / 'shared'))
 sys.path.insert(0, str(V2_DIR))
+
+import detector_fusion
+import pipeline_tuning
+import experiment_utils
+import tta_wbf
+import ensemble_pipeline
 
 
 VIEWS_DIR = HERE / 'cache' / 'views'
