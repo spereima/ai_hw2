@@ -10,9 +10,6 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import numpy as np
 import torch
-import tta_wbf
-import experiment_utils
-import retina
 
 
 HERE = Path(__file__).resolve().parent
@@ -20,6 +17,10 @@ TASK = HERE.parent
 ROOT = Path(os.environ.get('UCU_HW2_ROOT', Path(__file__).resolve().parents[2]))
 for path in (ROOT / 'shared', ROOT / 'final_pipeline/temporal', TASK):
     sys.path.insert(0, str(path))
+
+import tta_wbf
+import experiment_utils
+import retina
 
 VIEWS = ['none@1.0', 'h@1.0', 'none@1.25', 'h@1.25', 'none@1.5', 'h@1.5', 'none@0.75', 'h@0.75']
 BATCH_SIZE_BY_SCALE = {0.75: 4, 1.0: 4, 1.25: 2, 1.5: 2}
