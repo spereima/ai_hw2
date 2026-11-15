@@ -1,0 +1,102 @@
+{
+  "submission": "kaggle_submissions/faster_rcnn_tta_wbf_submission.csv",
+  "checkpoints": {
+    "0": {
+      "path": "lr_scheduler/fold0/best.pth",
+      "sha256": "2e7fa7d127baf85794b93ecacb682a26ff497cf59ce51d2419422880ac50f16f"
+    },
+    "1": {
+      "path": "lr_scheduler/fold1/best.pth",
+      "sha256": "7d2aa2269f62a22b46e1b7b3ffdad30fe3e59239398f0ca7af8e8ee6cc323945"
+    },
+    "2": {
+      "path": "lr_scheduler/fold2/best.pth",
+      "sha256": "6de239f8630b2b0b1b5f2d96c3f178eddda9598e39fd6df4d3dfd87f56929df5"
+    },
+    "3": {
+      "path": "lr_scheduler/fold3/best.pth",
+      "sha256": "4e9108f5e463dedc10a172de73af0dd2e1764495351343672e9bad2e47d7d64a"
+    },
+    "4": {
+      "path": "lr_scheduler/fold4/best.pth",
+      "sha256": "d1071ac1d7b2d278a6ecb768629342ee80876d2129cbd41510fcd8a1d688bbf2"
+    }
+  },
+  "cv_map_by_fold": {
+    "0": 0.23771482930382556,
+    "1": 0.2207813879489253,
+    "2": 0.23802273918932612,
+    "3": 0.20145495530394983,
+    "4": 0.15708963340109766
+  },
+  "tta_views": [
+    "none@1.0",
+    "h@1.0",
+    "none@1.25",
+    "h@1.25",
+    "none@1.5",
+    "h@1.5"
+  ],
+  "tta_batch": {
+    "1.0": 4,
+    "1.25": 4,
+    "1.5": 2
+  },
+  "fusion": "one class-aware WBF over 30 prediction sets per frame (checkpoint x view), equal weights",
+  "wbf": {
+    "iou_thr": 0.55,
+    "skip_box_thr": 0.0,
+    "conf_type": "avg",
+    "weights": "equal",
+    "top": 500
+  },
+  "inference": {
+    "min_size": 720,
+    "max_size": 1280,
+    "rpn_pre_test": 1000,
+    "rpn_post_test": 1000,
+    "det_per_img": 500,
+    "score_thr": 0.01,
+    "nms_thr": 0.5
+  },
+  "amp": true,
+  "device": "NVIDIA GeForce RTX 5070",
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "ensemble_boxes": "1.0.10",
+    "python": "3.12.10"
+  },
+  "test_images": 3811,
+  "checks": {
+    "columns are exactly image_id, PredictionString": true,
+    "one row per test image, same order as test_images.csv": true,
+    "no duplicate image ids": true,
+    "no missing image ids": true,
+    "every prediction is \"class score x y w h\" with class 0-7, score in (0, 1], finite box inside the image": true,
+    "at most 500 detections per image": true,
+    "empty PredictionString is an empty field (no NaN/None text)": true
+  },
+  "stats": {
+    "rows": 3811,
+    "images_with_detections": 3811,
+    "images_without_detections": 0,
+    "detections": 1782841,
+    "max_per_image": 500,
+    "mean_per_image": 467.8144843872999,
+    "classes_present": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "min_score": 0.000333,
+    "first_errors": []
+  },
+  "inference_minutes": 23.052483689785003,
+  "total_minutes": 24.537891821066538
+}

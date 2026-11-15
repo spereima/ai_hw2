@@ -1,0 +1,60 @@
+{
+  "decision_ensemble_fusion": {
+    "mAP": 0.3051202906010878,
+    "reference_B": 0.29281037428234313,
+    "gain": 0.012309916318744674,
+    "videos_improved": 4,
+    "videos": 7,
+    "adopt": false
+  },
+  "submissions": {
+    "RT-DETR 5-fold TTA + WBF + temporal (tuned)": {
+      "submission": "kaggle_submissions/rtdetr_tta_wbf_temporal_submission.csv",
+      "pipeline": {
+        "fcos": {
+          "file": "E:\\ucu_hw2\\rt_detr\\inference\\cache\\fused\\rtdetr_test_7b8e625a0884.npz"
+        },
+        "temporal": {
+          "s_high": 0.3,
+          "s_low": 0.01,
+          "iou_link": 0.5,
+          "max_gap": 2,
+          "min_len": 3,
+          "alpha": 0.65,
+          "beta": 0.6,
+          "gamma": 0.75
+        }
+      },
+      "checks": {
+        "columns are exactly image_id, PredictionString": true,
+        "one row per test image, same order as test_images.csv": true,
+        "no duplicate image ids": true,
+        "no missing image ids": true,
+        "every prediction is \"class score x y w h\" with class 0-7, score in (0, 1], finite box inside the image": true,
+        "at most 500 detections per image": true,
+        "empty PredictionString is an empty field (no NaN/None text)": true
+      },
+      "stats": {
+        "rows": 3811,
+        "images_with_detections": 3811,
+        "images_without_detections": 0,
+        "detections": 1905483,
+        "max_per_image": 500,
+        "mean_per_image": 499.9955392285489,
+        "classes_present": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "min_score": 0.000925,
+        "first_errors": []
+      }
+    }
+  },
+  "note": "validated against test_images.csv and the Data-page format"
+}

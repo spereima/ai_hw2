@@ -1,0 +1,74 @@
+{
+  "decision": {
+    "A: v2 + temporal (tuned)": {
+      "mAP": 0.28410413783410143,
+      "gain": 0.031299740189920655,
+      "videos_improved": 5,
+      "videos": 7,
+      "adopt": true
+    },
+    "B: v2 + FCOS fusion + temporal (tuned)": {
+      "mAP": 0.29281037428234313,
+      "gain": 0.040005976638162355,
+      "videos_improved": 7,
+      "videos": 7,
+      "adopt": true
+    }
+  },
+  "submissions": {
+    "A: v2 + temporal (tuned)": {
+      "submission": "kaggle_submissions/faster_rcnn_updated_submission.csv",
+      "pipeline": {
+        "frcnn": true,
+        "temporal": {
+          "s_high": 0.2,
+          "s_low": 0.01,
+          "iou_link": 0.5,
+          "max_gap": 2,
+          "min_len": 3,
+          "alpha": 0.8,
+          "beta": 0.6,
+          "gamma": 0.75
+        }
+      },
+      "official_validation": {
+        "mAP": 0.28410413783410143,
+        "gain": 0.031299740189920655,
+        "videos_improved": 5,
+        "videos": 7,
+        "adopt": true
+      },
+      "checks": {
+        "columns are exactly image_id, PredictionString": true,
+        "one row per test image, same order as test_images.csv": true,
+        "no duplicate image ids": true,
+        "no missing image ids": true,
+        "every prediction is \"class score x y w h\" with class 0-7, score in (0, 1], finite box inside the image": true,
+        "at most 500 detections per image": true,
+        "empty PredictionString is an empty field (no NaN/None text)": true
+      },
+      "stats": {
+        "rows": 3811,
+        "images_with_detections": 3811,
+        "images_without_detections": 0,
+        "detections": 1589981,
+        "max_per_image": 500,
+        "mean_per_image": 417.20834426659667,
+        "classes_present": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "min_score": 0.0002,
+        "first_errors": []
+      },
+      "minutes": 0.22649128437042237
+    }
+  },
+  "note": "sample_submission.csv is not available locally; validated against test_images.csv and the Data-page format"
+}

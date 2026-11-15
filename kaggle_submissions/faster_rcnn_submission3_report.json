@@ -1,0 +1,44 @@
+{
+  "submission": "kaggle_submissions/faster_rcnn_submission3.csv",
+  "pipeline": "Faster R-CNN lr_scheduler, 5 fold checkpoints x 6 TTA views, WBF (the faster_rcnn_tta_wbf_submission.csv predictions), then temporal post-processing (final_pipeline/temporal/temporal_experiment.ipynb)",
+  "temporal_parameters": {
+    "s_high": 0.3,
+    "s_low": 0.01,
+    "iou_link": 0.5,
+    "max_gap": 2,
+    "min_len": 3,
+    "alpha": 0.65,
+    "beta": 0.6,
+    "gamma": 0.75
+  },
+  "checks": {
+    "columns are exactly image_id, PredictionString": true,
+    "one row per test image, same order as test_images.csv": true,
+    "no duplicate image ids": true,
+    "no missing image ids": true,
+    "every prediction is \"class score x y w h\" with class 0-7, score in (0, 1], finite box inside the image": true,
+    "at most 500 detections per image": true,
+    "empty PredictionString is an empty field (no NaN/None text)": true
+  },
+  "stats": {
+    "rows": 3811,
+    "images_with_detections": 3811,
+    "images_without_detections": 0,
+    "detections": 1783078,
+    "max_per_image": 500,
+    "mean_per_image": 467.87667278929416,
+    "classes_present": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "min_score": 0.0002,
+    "first_errors": []
+  },
+  "note": "format check run on 2026-11-15 on the CSV written by temporal_experiment.ipynb; rebuilding the pipeline gives this file exactly. sample_submission.csv is not available locally; validated against test_images.csv and the Data-page format"
+}
